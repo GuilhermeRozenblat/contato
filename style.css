@@ -1,170 +1,781 @@
+/* Estilo geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
-
+    font-family: "Poppins", sans-serif;
 }
-
-.profile-card img {
-    width: 150px;
-
-    border-radius: 18%;
-    border: 3px solid rgb(0, 255, 234);
-    box-shadow: 0 0 25px rgb(0, 255, 234);
-    cursor: pointer;
-    transition: 0.3 ease;
-}
-
-.profile-card img:hover {
-    box-shadow: 0 0 25px rgb(0, 255, 234),
-        0 0 50px rgb(0, 255, 234);
-
-}
-
 body {
+    cursor: none; /* Esconde o cursor padrão do computador */
+}
+
+.circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    background-color: black;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    pointer-events: none; 
+}
+.logo img {
+    width: 100px; /* Ajuste este valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    border: 0cap;
+    border-radius: 20px;
+}
+.card3 img {
+    width: 100px;
+    border-radius: 10px;
+    display: block;
+}
+
+.card3 {
+    margin: 0 auto;
+    border-radius: 10px;
+    color: rgb(159, 159, 159);
+    background: #343a56;
+    text-align: center;
+    position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card3::after, .card3::before {
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), rgb(173, 0, 241), rgb(0, 225, 255), rgb(173, 0, 241));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    padding: 5px;
+    border-radius: 10px;
+    animation: 3s spin1 linear infinite;
+}
+.card3::before {
+    filter: blur(1.5rem);
+    opacity: 0.6;
+}
+
+.logo img:hover {
+    box-shadow: 0 0 20px rgb(0, 225, 255);
+}
+body {
+    background-color: #01051a;
+    height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.btn-contato button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #01051a;
+    color: rgb(0, 225, 255);
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 0 8px rgb(0, 225, 255);
+    transition: .2s;
+}
+.btn-contato button:hover {
+    box-shadow: 0px 0px 8px rgb(0, 225, 255);
+    transform: scale(1.05);
+    background: rgb(0, 225, 255);
+    color: black;
+}
+h2.titulo {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+}
+h2.titulo span {
+    color: rgb(0, 225, 255);
+}
+
+/* estilo do cabeçalho */
+
+header {
+    padding: 40px 4%;
+}
+
+header> .interface {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+header a {
+    color: rgb(192, 188, 188);
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+header nav ul {
+    list-style-type: none;
+}
+header nav ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+header a:hover {
+    color: rgb(255, 255, 255);
+    transform: scale(1.10);
+    text-shadow: black;
+}
+
+/* TOPO DO SITE */
+
+
+/* efeito scanner */
+
+.txt-topo-site-texto1 h6{
+    z-index: -10;
+}
+.txt-topo-site h6{
+    display: flex;
     justify-content: center;
-    min-height: 100vh;
-    background-size: cover;
-    background: #C33764;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #1D2671, #C33764);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #1D2671, #C33764);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    align-items: center;
+    background: #01051a;
+    position: relative;
+    font-size: 4vw;
+    color: #01051a;
+    -webkit-text-stroke: 0.1vw #00178a9d;
+    text-transform: uppercase;
+}
+.txt-topo-site h6::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #01a1fe;
+    -webkit-text-stroke: 0vw #01051a;
+    border-right: 2px solid #01a1fe;
+    overflow: hidden;
+    animation: animate 7s linear infinite;
+}
+
+@keyframes animate {
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+    
+}
+
+
+/* fim do efeito scanner */
+
+
+
+section.topo-do-site {
+    padding: 40px 4%;
+    padding-top: 35px;
+}
+.topo-do-site .btn-contato a {
+    padding: 10px;
+}
+.nome {
+    padding-top: 80px;
+    align-items: center;
+    margin-right: 70px;
+}
+
+.topo-do-site-nome-foto .nome h1 {
+    color: rgb(0, 225, 255);
+    text-align: center;
+}
+.topo-do-site-nome-foto .nome h2 {
+    color: rgb(0, 225, 255);
+    text-align: center;
+}
+.topo-do-site-nome-foto .nome p {
+    color: rgba(255, 255, 255, 0.86);
+    text-align: center;
+}
+
+.card2 img {
+    width: 250px;
+    border-radius: 200px;
+    display: block;
+}
+
+.card2 {
+    margin: 0 auto;
+    border-radius: 200px;
+    color: rgb(159, 159, 159);
+    background: #343a56;
+    text-align: center;
+    position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card2::after, .card2::before {
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), rgb(173, 0, 241), rgb(0, 225, 255), rgb(173, 0, 241));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -10;
+    padding: 10px;
+    border-radius: 200px;
+    animation: 3s spin1 linear infinite;
+}
+.card2::before {
+    filter: blur(1.5rem);
+    opacity: 0.6;
+}
+
+.img-topo-site {
+    border-radius: 200px;
+    transition: .2s;
+    
+    
+}
+
+.img-topo-site:hover {
+    transform: scale(1.10);
+    box-shadow: 0 0 20px white;
 
 }
 
-.profile-card {
+section.topo-do-site .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.topo-do-site h1 {
+    color: white;
+    font-size: 42px;
+    line-height: 40px;
+}
+
+.topo-do-site .txt-topo-site h1 span {
+    color: rgb(0, 225, 255);
+}
+
+.topo-do-site .txt-topo-site p {
+    color: white;
+    margin: 40px 0;
+}
+
+.topo-do-site .img-topo-site {
+    margin-left: 30px;
+    margin-right: 100px;
+    position: relative;
+    animation: flutuar 3s ease-in-out infinite alternate;
+}
+
+@keyframes flutuar {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 30px
+    }
+}
+
+/* Especialidades  */
+
+section.especialidades {
+    padding: 40px 4%;
+    margin-top: 80px;
+}
+section.especialidades .flex {
+    gap: 60px;
+}
+
+.especialidades .especialidades-box {
+    
+    padding: 40px;
+    border-radius: 20px;
+    margin: 80px auto;
+    transition: .2s;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgb(0, 0, 0));
+    /* background: rgba(255, 255, 255, 0.1); */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 20px 20px 50px 0 rgba(0, 0, 0, 0.5);
+    color: white;
+    position: relative;
+    backdrop-filter: blur(5px);
+    
+    
+}
+
+.especialidades .especialidades-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.473);
+}
+
+.especialidades .especialidades-box i {
+    font-size: 70px;
+    color: rgb(0, 225, 255);
+    text-shadow: 10px 5px 5px black;
+    z-index: 11;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%,-50%,0px);
+    
+}
+
+.especialidades-box:hover i {
+    text-shadow: 0 0 20px rgb(0, 8, 255);
+    
+}
+
+.especialidades .especialidades-box h3 {
+    font-size: 28px;
+    margin: 15px 0;
+    text-shadow: 10px 5px 5px black;
+}
+
+
+
+
+
+
+
+/* Estilo sobre */
+
+section.sobre {
+    padding: 100px 4%;
+}
+.img-sobre img {
+    height: 400px;
+    width: auto;
+    border-radius: 20px;
+    transition: .2s;
+    z-index: -10;
+}
+
+.card1 img {
+    width: 400px;
+    border-radius: 10px;
+    display: block;
+}
+
+.card1 {
+    margin: 0 auto;
+    width: 500px;
+    border-radius: 10px;
+    color: rgb(159, 159, 159);
+    background: #343a56;
+    text-align: center;
+    position: relative;
+    z-index: -10;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card1::after, .card1::before {
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), black, rgb(0, 225, 255), black, rgb(173, 0, 241), black);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -10;
+    padding: 8px;
+    border-radius: 10px;
+    /* animation: 10s spin1 linear infinite;   */
+}
+.card1::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin1 {
+    from {
+        --angle: 0deg
+    }
+    to {
+        --angle: 360deg
+    }
+}
+
+.img-sobre img:hover {
+    box-shadow: 0 0 20px rgb(42, 36, 225);
+    transform: scale(1.05);
+}
+
+section.sobre .flex {
+    align-items: center;
+    gap: 60px;
+}
+
+.sobre .txt-sobre {
+    color: white;
+    
+}
+
+.sobre .txt-sobre h2 {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span {
+    color: rgb(0, 225, 255);
+    display: block;
+}
+
+.sobre .txt-sobre p {
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.btn-social button {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgb(0, 225, 255);
+    background-color: #01051a;
+    color: rgb(0, 225, 255);
+    border: 0cap;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 5px 5px;
+    transition: .2s;
+}
+.btn-social button:hover {
+    box-shadow: 0 0 20px rgb(0, 225, 255);
+    background-color: rgb(0, 225, 255);
+    color: black;
+    transform: scale(1.10) translateY(-5PX);
+}
+
+/* HABILIDADES */
+
+section.habilidades {
+    padding: 80px 4%;
+}
+
+section.habilidades .titulo span{
+    color: rgb(165, 7, 228);
+}
+
+section.habilidades p{
+    color: white;
+    
+
+}
+.fundo-e-nome .nome-box-habilidade p{
+    text-align: center;
+}
+
+
+section.habilidades .flex {
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.fundo-transparente {
+    height: 400px;
+    width: 320px;
+    margin: 80px auto;
+    margin-top: 40px;
+    transition: .2s;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgb(0, 0, 0));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.952);
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.945);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* animation: sombra 2s ease-in-out infinite alternate; */
+    transition: .2s;
+  
+    
+}
+
+.fundo-transparente:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.659);
+}
+
+.fundo-transparente:hover .content{
+    box-shadow: 0 0 8px rgb(55, 1, 87);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    border-radius: 10px;
+    
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    background-color:  rgb(94, 2, 130);
+    border-radius: 10px;
+    padding: 5px;
+    padding-right: 10px;
+    position: relative;
+    box-shadow: 10px 5px 5px black;
+    
+}
+.content:hover{
+    transform: scale(1.15);
+    
+}
+
+
+
+
+@keyframes sombra {
+    from {
+        transition: 0 0 1px white;
+    }
+    to {
+        box-shadow: 0 0 20px rgb(255, 255, 255);
+    }
+}
+
+
+.item .content img{
+    height: 22px;
+    width: auto;
+    padding-right: 10px;
+    padding-left: 3px;
+}
+
+.content i {
+    font-size: 25px;
+    padding-right: 10px;
+    padding-left: 3px;
+}
+
+/*  PROJETOS*/
+
+section.portfolio {
+    padding: 80px 4%;
+    box-shadow: 0 0 40px 10px #09c0e9a9;
+}
+section.portfolio .flex {
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.img-port {
+    margin-bottom: 50px;
+    width: 380px;
+    height: 300px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 2s;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+}
+
+.img-port:hover {
+    background-position: 100% 100%;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.overlay {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 46, 46, 0.507);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    opacity: 1;
+    transition: .5s;
+}
+
+.overlay:hover {
+    opacity: 0;
+}
+
+/* ESTILO FORMULARIO */
+
+section.formulario {
+    padding: 80px 4%;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
     flex-direction: column;
-    text-align: center;
-    gap: 0.5em;
-    padding: 2em 2.5em;
-    border-radius: 2em;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    gap: 10px;
+    margin-top: 40px;
+}
+
+form input, form textarea {
+    width: 100%;
+    background-color: rgba(164, 164, 164, 0.236);
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    font-size: 15px;
     color: white;
 }
 
-.profile-card .numbers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
-
+form textarea {
+    resize: none;
+    max-height: 200px;
 }
 
-.profile-card .btn-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 1em;
-
-}
-
-.btn-box button {
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 1em;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: 0.4s ease-out;
-
-}
-
-.btn-box .seguir {
-    background-color: transparent;
-    border: 2px solid rgb(0, 255, 234);
-    color: rgb(0, 255, 234);
-    box-shadow: 0 0 25px rgb(0, 255, 234);
-
-}
-
-.btn-box .seguir:hover {
-    background-color: rgb(0, 255, 234);
-    color: black;
-    box-shadow: 0 0 25 rgb(0, 255, 234),
-}
-
-.btn-box .message {
-    background-color: transparent;
-    border: 2px solid rgb(0, 255, 234);
-    color: rgb(0, 255, 234);
-    box-shadow: 0 0 25px rgb(0, 255, 234);
-}
-
-.btn-box .message:hover {
-    background-color: rgb(0, 255, 234);
-    color: black;
-    box-shadow: 0 0 25 rgb(0, 255, 234),
-
-}
-
-.numbers-grid .box p:last-child {
-    font-weight: 500;
-    opacity: 0.8;
-}
-
-.info-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
+form .btn-enviar {
+    margin-top: 20px;
     text-align: center;
-    align-items: center;
-    margin-top: 1.5em;
+    border-color: rgb(0, 225, 255);
 }
-
-.info p {
-    color: rgb(0, 255, 234);
-}
-
-.info-box .Redes {
-    margin: 20px 0;
-}
-
-.info-box .Redes i {
-    font-size: 1.5em;
-    color: rgb(0, 255, 234);
-    border: 2px solid rgb(0, 255, 234);
-    border-radius: 50%;
-    padding: 10px;
-    margin-left: 5px;
+form .btn-enviar input {
+    width: 120px;
+    box-shadow: 0 0 8px rgb(0, 225, 255);
+    background-color: black;
+    color: rgb(0, 225, 255);
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.4s ease-out;
-
+    transition: .2s;
 }
-
-.info-box .Redes i:hover {
-    background-color: rgb(0, 255, 234);
+form .btn-enviar input:hover {
+    background-color: rgb(0, 225, 255);
     color: black;
-    box-shadow: 0 0 25 rgb(0, 255, 234);
+    transform: scale(1.05) translateY(-10PX);
+    box-shadow: 0 0 20px rgb(0, 225, 255);
 }
 
-@media (max-width: 768px) {
-    .profile-card {
-        width: 90%;
-        max-width: 80%;
+/* teste */
+
+section.teste {
+    padding: 0px 4%;
+    padding-bottom: 80px;
+}
+.card img {
+    width: 100px;
+    border-radius: 10px;
+}
+
+.card {
+    margin: 0 auto;
+    width: 350px;
+    padding: 2em;
+    border-radius: 10px;
+    color: rgb(159, 159, 159);
+    background: #343a56;
+    text-align: center;
+    position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card::after, .card::before {
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), rgb(173, 0, 241), rgb(0, 225, 255), rgb(173, 0, 241));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    padding: 10px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+.card::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg
     }
-
-    .btn-box button {
-        width: 100%;
-        margin: 10px auto;
-    }
-
-
-    .profile-card {
-        padding: 1.5em;
+    to {
+        --angle: 360deg
     }
 }
+
+footer {
+    padding: 40px 4%;
+    box-shadow: 0 0 40px #09c0e9a9;
+}
+
+footer .flex {
+    justify-content: space-between;
+}
+
+footer .line-footer {
+    padding: 20px 0;
+
+}
+
+.borda {
+    border-top: 2px solid #09c0e9a9; 
+}
+
+footer .line-footer p i {
+    color: rgb(0, 225, 255);
+    font-size: 22px;
+    padding-right: 10px;
+}
+
+footer .line-footer p a {
+    color: rgba(255, 255, 255, 0.781);
+}
+
+
+
